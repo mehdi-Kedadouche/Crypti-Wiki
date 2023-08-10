@@ -1,0 +1,26 @@
+# config/packages/easy_admin.yaml
+
+easy_admin:
+    entities:
+        Creature:
+            class: App\Entity\Creature
+            label: 'Créatures'
+            list:
+                fields:
+                    - name
+                    - codeCreature
+                    - picture
+                    - resume
+                    - size
+                    - weight
+                    - isValid
+                    - isVisible
+                actions:
+                    - { name: 'show', label: 'Voir' }
+                    - { name: 'edit', label: 'Modifier' }
+                show:
+                template: 'easy_admin/view_creature.html.twig'    
+    design: # Assurez-vous que cette ligne a une indentation correcte.
+        assets:
+            css:
+                - 'public/css/easyadmin.css'

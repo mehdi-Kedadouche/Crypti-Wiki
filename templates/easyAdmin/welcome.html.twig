@@ -1,0 +1,46 @@
+{# @var ea \EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext #}
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content_title %}
+    <h1>Bienvenue sur le Back-Office de CryptiWiki  <img src="{{ asset('images/logo_wolpertinger_rondb.png') }}"  alt=""></h1>
+{% endblock %}
+
+{% block main %}
+    <style>
+        img{ max-width: 100px;}
+        h1 { text-align: center; }
+        p { max-width: 600px; }
+        a li{ max-width: 300px; }
+        main { background: black; }
+        .li-edit { background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%); color: white; } 
+    </style>
+
+<div class="container">
+    <h1 class="home__title"><strong>Articles en attente de validation :</strong></h1>
+
+    <div class="row">
+        {% for creature in creatures %}
+            {% if creature.isValid is same as false %}
+                {% if creature.updatedAt is null %}
+                    <div class="col-md-6 col-sm-12">
+                        <a href="{{ path('view_creature', {'id': creature.id}) }}" class="text-center bg-secondary btn btn-secondary d-block mb-2 text-truncate" title="{{ creature.name }} - Créée le {{ creature.createdAt|date("d/m/y à H:i") }}">
+                            <strong>Création :</strong> {{ creature.name }} - Créée le {{ creature.createdAt|date("d/m/y à H:i") }}
+                        </a>
+                    </div>
+                {% else %}
+                    <div class="col-md-6 col-sm-12">
+                        <a href="{{ path('view_creature', {'id': creature.id}) }}" class="bg-light btn btn-light d-block mb-2 text-truncate" title="{{ creature.name }} - Modifié le {{ creature.updatedAt|date("d/m/y à H:i") }}">
+                            <strong>Modification :</strong> {{ creature.name }} - Modifié le {{ creature.updatedAt|date("d/m/y à H:i") }}
+                        </a>
+                    </div>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+
+    <pre>
+
+    </pre>
+{% endblock %}

@@ -1,0 +1,55 @@
+
+{# templates/easy_admin/view_creature.html.twig #}
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+{% block content_title 'Détails de la créature : ' ~ creature.name %}
+
+{% block content %}
+    <div class="card pb-3">
+        <div class="card-body">
+            <h3 class="card-title">{{ creature.name }}</h3>
+            <p class="card-text">Date de création : {{ creature.createdAt|date("d/m/y") }}</p>
+            {% if creature.updatedAt is not null %}
+                <p class="card-text">Date de modification : {{ creature.updatedAt|date("d/m/y") }}</p>
+            {% endif %}
+            <p class="card-text">Image : {{ creature.picture }}</p>
+            <p class="card-text">Taille : {{ creature.size }}</p>
+            <p class="card-text">Poids : {{ creature.weight }}</p>
+            <p class="card-text">Résumé : {{ creature.resume }}</p>
+            <p class="card-text">Description : {{ creature.description }}</p>
+            <p class="card-text">Noms alternatifs : {{ creature.otherNames|join(', ') }}</p>
+            <p class="card-text">Creatures liées : {{ creature.relatedCreatures|join(', ') }}</p>
+            <p class="card-text">Particularités physiques : {{ creature.physicalPeculiarities }}</p>
+            <p class="card-text">Régime alimentaire : {{ creature.diet }}</p>
+            <p class="card-text">Origine : {{ creature.origin }}</p>
+            <p class="card-text">Localisation : {{ creature.localisation }}</p>
+            <p class="card-text">Première mention : {{ creature.firstMention }}</p>
+            <p class="card-text">Est valide : {{ creature.isValid ? 'Oui' : 'Non' }}</p>
+            <p class="card-text">Est visible : {{ creature.isVisible ? 'Oui' : 'Non' }}</p>
+            <p class="card-text">Types : {{ creature.types|join(', ') }}</p>
+            <p class="card-text">Habitats : {{ creature.habitats|join(', ') }}</p>
+            {# Ajoutez ici d'autres champs de l'entité Creature #}
+        </div>
+
+    </div> 
+<div class="mt-3">
+    {% if creature.isValid %}
+        <p class="text-success">Cette créature est validée.</p>
+    {% else %}
+        <a href="{{ path('validate_creature', {'id': creature.id}) }}" class="btn btn-success">Valider</a>
+        <a href="{{ path('refuse_creature', {'id': creature.id}) }}" class="btn btn-danger">Refuser</a>
+    {% endif %}
+    <a href="{{ path('admin') }}" class="btn btn-primary ">Retour à la liste</a>
+</div>
+
+{# Afficher le message flash s'il existe #}
+{% if app.flashes('success') %}
+    <div class="alert alert-success mt-3">
+        {{ app.flashes('success')[0] }}
+    </div>
+
+{% endif %}
+
+
+
+{% endblock %}

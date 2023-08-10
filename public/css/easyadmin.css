@@ -1,0 +1,80 @@
+/* public/css/easyadmin.css */
+
+body.ea-dashboard {
+    color: #e4cdc3; /* Couleur du texte */
+    font-size: 18px; /* Taille de la police */
+    /* Ajoutez d'autres styles selon vos besoins */}
+
+.custom-dashboard-item {
+    background-color: #d4fad9; /* Remplacez cette couleur par celle souhaitée */
+}
+
+.custom-articles-item {
+    background-color: #d2f7f7; /* Remplacez cette couleur par celle souhaitée */
+}
+
+.custom-types-item {
+    background-color: #ead4f1; /* Remplacez cette couleur par celle souhaitée */
+}
+
+.custom-habitats-item {
+    /* Chrome 10-25, Safari 5.1-6 */
+    /* background: linear-gradient(to right, #0083B0, #00B4DB); */
+    color: #ec9797; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /* Remplacez cette couleur par celle souhaitée */
+}
+
+.custom-users-item {
+    background-color: #bcc1f0; /* Remplacez cette couleur par celle souhaitée */
+}
+
+
+
+
+
+
+
+.custom-dashboard-item:hover,
+.custom-articles-item:hover,
+.custom-types-item:hover,
+.custom-habitats-item:hover,
+.custom-users-item:hover {
+  background-color: #f2f2f2; /* Changer la couleur de fond en fonction de vos préférences */
+  color: #333; /* Changer la couleur du texte en fonction de vos préférences */
+  text-decoration: none; /* Supprimer la soulignement du lien survolé */
+}
+
+/* public/css/easyadmin.css */
+
+/* Style pour la liste des créatures */
+.easyadmin-list th, .easyadmin-list td {
+    text-align: center;
+}
+
+/* Style pour les images de la liste */
+.easyadmin-list img {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+/* Style pour les détails de la créature */
+.easyadmin-show th, .easyadmin-show td {
+    text-align: left;
+}
+
+/* Style pour les images dans les détails */
+.easyadmin-show img {
+    max-width: 300px;
+    max-height: 300px;
+}
+
+/* Style pour le formulaire d'édition */
+.easyadmin-edit th, .easyadmin-edit td {
+    text-align: left;
+}
+
+/* Style pour les images dans le formulaire d'édition */
+.easyadmin-edit img {
+    max-width: 400px;
+    max-height: 400px;
+}
